@@ -1,0 +1,3 @@
+[submodule "GpuBibleScraper"]
+	path = GpuBibleScraper
+	url = https://github.com/krystasin/GpuBible.git
