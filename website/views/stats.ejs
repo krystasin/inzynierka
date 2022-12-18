@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/public/css/stats.css">
+    <title>Prices</title>
+</head>
+
+<body>
+    <div id="popup" style="visibility: hidden;">
+    </div>
+    <div id="buttons-top-container">
+        <form class="buttonsContainer" id="stats-type-form">
+            <div class="stat-type-btn" id="modelsStatsBtn">
+                <label for="stat-type-models">
+                    <input type="radio" id="stat-type-models" class="stat-type-radio" name="stats-type-n"
+                        checked="checked" value="models" />
+                    wartości dla modeli
+                </label>
+            </div>
+
+            <div class="stat-type-btn" id="domainStatsBtn">
+                <label for="stat-type-domains">
+                    <input type="radio" id="stat-type-domains" class="stat-type-radio" name="stats-type-n"
+                        value="domains" />
+                    wartości dla sklepów
+                </label>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="content">
+        <div class="leftPAnel">
+
+            <script>
+                function generateCheckbox(label, parent) {
+                    const p = document.createElement('p');
+                    p.innerText = label
+                    const checkboxLabel = document.createElement('label');
+                    const checkbox = document.createElement('input');
+                    checkbox.classList = ['checkBoxCls disable-selection']
+                    checkbox.type = 'checkbox';
+                    checkbox.name = label;
+                    checkbox.id = label;
+                    checkbox.checked = true;
+
+                    checkboxLabel.appendChild(checkbox);
+                    checkboxLabel.appendChild(p)
+                    checkboxLabel.setAttribute('for', label);
+
+                    parent.appendChild(checkboxLabel);
+                }
+            </script>
+
+
+            <div class="stats">
+                <form id="statsName">
+                    <label class="statName-label" for="min">
+                        <input type="radio" id="min" name="statName-n" value="min" class="statName-radio"
+                            checked="true">
+                        min
+                    </label>
+                    <label class="statName-label" for="avg">
+                        <input type="radio" id="avg" name="statName-n" value="avg" class="statName-radio">
+                        avg
+                    </label>
+                    <label class="statName-label" for="max">
+                        <input type="radio" id="max" name="statName-n" value="max" class="statName-radio">
+                        max
+                    </label>
+                    <label class="statName-label" for="median">
+                        <input type="radio" id="median" name="statName-n" value="median" class="statName-radio">
+                        mediana
+                    </label>
+                    <label class="statName-label" for="central_tendency">
+                        <input type="radio" id="central_tendency" name="statName-n" value="central_tendency"
+                            class="statName-radio">
+                        tendencja centralna
+                    </label>
+
+                </form>
+            </div>
+
+
+            <div class="domeny-selection">
+                <p>domeny:</p>
+                <form class="domenyForm" id="domenyFormId">
+                    <script>
+                        var domains = "<%= avalibleDomains  %>"
+                        domains = domains.split(',')
+                        const parentD = document.getElementById("domenyFormId");
+                        domains.forEach(domena => generateCheckbox(domena, parentD));
+                    </script>
+                </form>
+            </div>
+
+
+            <div class="modeleForm">
+                <p>modele:</p>
+                <form class="modeleForm" id="modeleFormId">
+                    <script>
+                        var models = "<%= avalibleModels  %>"
+                        models = models.split(',')
+                        const parentM = document.getElementById("modeleFormId");
+                        models.forEach(model => generateCheckbox(model, parentM));
+                    </script>
+                </form>
+                </script>
+
+                </form>
+            </div>
+            <button id="reloadStatsBtn">załaduj gpu</button>
+        </div>
+
+        <div id="acquisitions_div">
+            <canvas id="acquisitions"></canvas>
+        </div>
+    </div>
+
+    <!-- <script type="module" src="dimensions.js"></script> -->
+    <script type="module" src="/public/js/basicChart.js" defer></script>
+
+</body>
+
+</html>

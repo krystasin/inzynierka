@@ -1,0 +1,139 @@
+body {
+    /* display: flex; */
+    padding: 0;
+    justify-content: center;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+
+}
+
+
+#acquisitions_div{
+    border: 1px solid aquamarine;
+    background-color: aliceblue;
+
+}
+
+#acquisitions {
+    width: 1200px;
+    display: flex;
+    padding: 10px;
+}
+
+.leftPAnel {
+
+    border: 1px solid rgb(146, 238, 207);
+    border-right: none;
+    padding: 10px 20px 0 10px;
+    background-color: aliceblue;
+    justify-content: center;
+    min-width: 160px;
+
+}
+
+.leftPAnel div {
+    margin-bottom: 40px;
+    justify-content: center
+}
+
+
+#reloadStatsBtn {
+    width: 100%;
+    padding: 8px 0;
+    font-size: 16px;
+    margin: 10px 0 14px 0;
+    background-color: rgb(146, 238, 207);
+    color: black;
+    border: none;
+
+}
+
+#reloadStatsBtn:hover {
+    cursor: pointer;
+}
+
+#reloadStatsBtn::after {
+    border: none;
+}
+
+
+
+#statsForm label {
+    padding-bottom: 4px;
+
+}
+
+.leftPAnel form label {
+    display: flex;
+    margin: 4px 0 0 0;
+    padding: 6px 0 2px 0;
+    border-bottom: 1px solid aliceblue;
+    justify-content: left;
+
+}
+
+.checkBoxCls {
+    background-color: green;
+
+
+}
+
+.leftPAnel form label:hover {
+    border-bottom: 1px solid wheat;
+
+}
+
+.disable-selection {
+    -webkit-touch-callout: none;
+    /* iOS Safari                           */
+    -webkit-user-select: none;
+    /* Safari                               */
+    -khtml-user-select: none;
+    /* Konqueror HTML                       */
+    -moz-user-select: none;
+    /* Firefox w przeszłości (stare wersje) */
+    -ms-user-select: none;
+    /* Internet Explorer (>=10) / Edge      */
+    user-select: none;
+    /* Aktualnie wspierane przez:           */
+    /* Chrome, Opera and Firefox            */
+}
+
+
+
+.buttonsContainer {
+    display: flex;
+    padding: 20px 0;
+    justify-content: center;
+}
+
+
+.stat-type-btn{
+    font-size: 22px;
+    margin: 0 40px;
+    border: 1px solid rgb(46, 177, 133);
+}
+.stat-type-btn:hover {
+    cursor: pointer;
+}
+.stat-type-btn>label {
+    display: block;
+    padding: 20px 30px;
+    background-color: rgb(146, 238, 207);
+
+
+}
+
+.buttonsContainer input[type="radio"]:checked+label,
+.Checked+label {
+    background-color: yellow;
+    color: red;
+}
