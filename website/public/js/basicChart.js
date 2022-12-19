@@ -50,7 +50,7 @@ window.addEventListener('load', () => {
 function drawChart() {
     const selectedDomains = getCeckedChildren('domenyFormId')
     const selectedModels = getCeckedChildren('modeleFormId')
-    if (selectedDomains.length == 0 || selectedModels.length == 0) return printMessage('tabica domen lub modeli jest pusta', 3000);
+    if (selectedDomains.length == 0 || selectedModels.length == 0) return printMessage('nie wubrano żadnej domeny lub modelu', 3000);
     console.log('Creating request for: \n==>> ' + selectedDomains + '\n==>> ' + selectedModels);
     globalSelectedDomains = selectedDomains
     globalSelectedModels = selectedModels
